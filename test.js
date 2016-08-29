@@ -1,10 +1,12 @@
+//Lesson One Exercise
+
 var count = 12;
 var a = true;
-typeof a === 'boolean';
+typeof a === 'boolean';//true
 
 var msg = 'node.js developer';
 var len = msg.length;
-msg.toUpperCase();
+msg.toUpperCase();//NODE.JS DEVELOPER
 
 var student = {
     name: "aliang1122",
@@ -13,12 +15,12 @@ var student = {
     city: 'Beijing'
 }
 
-var name = student.name;
-var address = student['city'];
+var name = student.name;//aliang1122
+var address = student['city'];//Beijing
 
 var cars = ["Audi", "BMW", "Volvo"];
-cars[0] = "Bentley";
-cars[4] = "Buick";
+cars[0] = "Bentley";//cars=["Bentley","BMW","Volvo"]
+cars[4] = "Buick";//cars=["Bentley","BMW","Volvo",undefined,"Buick"]
 
 var answer = new String;
 answer = 'I\'m learning Node.js';
@@ -26,7 +28,7 @@ answer = 'I\'m learning Node.js';
 var person = null;
 
 var gender;
-a = (gender === 'male') ? 'male' : 'female';
+a = (gender === 'male') ? 'male' : 'female';//female
 
 var day = new Date().getDay();
 switch (day) {
