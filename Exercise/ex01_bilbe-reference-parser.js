@@ -5,6 +5,7 @@
 //2016-9-2:new ,version 0.1;
 
 var str = "创世记1:1-5,31;2:1-3,10,23-24;50:40";
+var regex=/u4e00-u9fa50-9a-ZA-Z,;:/
 
 var regex1 = /[,;]/g;
 
