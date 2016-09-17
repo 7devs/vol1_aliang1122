@@ -43,7 +43,7 @@ router.route('/:id')
             if (idx >= 0 && idx < albumModel.length) {
                 res.status(200).send(albumModel[idx]);
             } else {
-                res.status(404).send('Not Exist');
+                res.status(404).send('Not Found');
             }
         } else {
             res.status(400).send('Bad Request');
@@ -58,11 +58,14 @@ router.route('/:id')
             if (idx >= 0 && idx < userModel.length) {
                 var album = albumModel[idx];
                 var newTitle = req.body.title;
-                var newLength = req.body.length;
+                var newLength = parseInt(req.body.length,10);
                 album.title = newTitle;
-                album.length = newLength;
-                res.status(200).send(album);
-
+                if(Number.isNaN(newLength)===true){
+                  res.status(400).send('typeof length should be a number');
+                }else{
+                  album.length = newLength;
+                  res.status(200).send(album);
+                }
             } else {
                 res.status(404).send('Not Found');
             }

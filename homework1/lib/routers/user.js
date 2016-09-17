@@ -14,7 +14,7 @@ router.route('/ageAvg')
             sum += userModel[i].age;
         }
         ageAvg = sum / n;
-        res.status(200).send("average age: " + ageAvg.toString());
+        res.status(200).send(ageAvg.toString());
     });
 
 router.route('/search')
@@ -24,8 +24,7 @@ router.route('/search')
         var result = [];
         for (var i = 0; i < userModel.length; i++) {
             if (regex.test(userModel[i].company)) {
-                var name = userModel[i].firstName + " " + userModel[i].lastName
-                result.push(name);
+                result.push(userModel[i]);
             }
         }
         if (result.length !== 0) {
@@ -40,12 +39,11 @@ router.route('/:id')
         var id = req.params.id;
         var idx = parseInt(id, 10) - 1;
         if (Number.isNaN(idx) === false) {
-            console.log('err');
             if (idx >= 0 && idx < userModel.length) {
                 var name = userModel[idx].firstName + " " + userModel[idx].lastName;
                 res.status(200).send(name);
             } else {
-                res.status(404).send('Not Exist');
+                res.status(404).send('Not Found');
             }
         } else {
             res.status(400).send('Bad Request');
@@ -84,7 +82,7 @@ router.route('/count/:sex')
                     count++;
                 }
             }
-            res.status(200).send(sex + ": " + count);
+            res.status(200).send(count.toString());
         } else {
             res.status(200).send('sex should be male or female');
         }
